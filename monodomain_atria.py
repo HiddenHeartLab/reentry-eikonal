@@ -5,7 +5,7 @@ import pyvista as pv
 import numpy as np
 from tqdm import trange
 import meshio
-from ioniclib.ioniclib import IonicModel
+from ioniclib import IonicModel
 import csv
 import time
 
@@ -88,14 +88,14 @@ def solver(A):
 
 
 # Read the mesh
-atria = meshio.read('atria.vtk')
+atria = meshio.read('meshes/atria.vtk')
 pts = 0.1*atria.points
 elm = atria.cells_dict['triangle']
 n_elms = np.shape(elm)[0]
 
 # Matrices for the monodomain equation
 t2f = np.zeros((n_elms,3))
-with open('t2f_atria.csv') as f:
+with open('meshes/t2f_atria.csv') as f:
     reader = csv.reader(f)
     n = 0
     for row in reader:
@@ -145,7 +145,7 @@ Iion  = A.createVecRight()
 dtime = np.zeros((vm.size,),dtype=np.single)
 y = np.zeros((vm.size,25),dtype=np.double)
 
-pre = np.load('prepacing.npz')
+pre = np.load('rest/prepacing.npz')
 vm_init = pre['vm']
 vm.array[:] = np.tile(vm_init[0],vm.size)
 y_init = pre['y']
@@ -154,7 +154,7 @@ y = np.tile(y_init[0,:],(vm.size,1))
 # loop
 t_unblock = 125
 start = time.time()
-with meshio.xdmf.TimeSeriesWriter("atria.xdmf") as writer:
+with meshio.xdmf.TimeSeriesWriter("output/monodomain_atria.xdmf") as writer:
     writer.write_points_cells(pts, [("triangle",elm)])
     for i in trange(ndt):
         # current time

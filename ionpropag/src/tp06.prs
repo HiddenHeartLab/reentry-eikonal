@@ -1,0 +1,732 @@
+
+
+
+
+
+
+ 
+
+   
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$structure TP06_param{
+
+
+
+
+$member Ko { $type= $float[7],
+
+$default= 5.4,$units= "mM",
+
+$s_desc= "extracellular K concentration" }
+
+
+$member Ko_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual Ko is to come from" }
+
+
+$member Cao { $type= $float[7],
+
+$default= 2.0,$units= "mM",
+
+$s_desc= "extracellular Ca concentration" }
+
+
+$member Nao { $type= $float[7],
+
+$default= 140.0,$units= "mM",
+
+$s_desc= "extracellular Na concentration" }
+
+
+
+
+
+
+
+
+
+
+
+$member Vc { $type= $float[7],
+
+$default= 0.016404,$units= "nanoLiter",
+
+$s_desc= "intracellular volume" }
+
+
+$member Vsr { $type= $float[7],
+
+$default= 0.001094,$units= "nanoLiter",
+
+$s_desc= "SR volume" }
+
+
+$member Vss { $type= $float[7],
+
+$default= 0.00005468,$units= "nanoLiter",
+
+$s_desc= "subspace volume" }
+
+
+
+
+
+
+
+$member capacitance { $type= $float[7],
+
+$default= 0.185,$units= "nF",
+
+$s_desc= "single-cell capacitance" }
+
+
+
+
+
+
+
+
+
+
+$member Bufc { $type= $float[7],
+
+$default= 0.2,$units= "mM",
+
+$s_desc= "total cytoplasmic Ca buffer concentration" }
+
+
+$member Kbufc { $type= $float[7],
+
+$default= 0.001,$units= "mM",
+
+$s_desc= "half-saturation for cytoplasmic Ca buffer" }
+
+
+$member Bufsr { $type= $float[7],
+
+$default= 10,$units= "mM",
+
+$s_desc= "total SR Ca buffer concentration" }
+
+
+$member Kbufsr { $type= $float[7],
+
+$default= 0.3,$units= "mM",
+
+$s_desc= "half-saturation for SR Ca buffer" }
+
+
+$member Bufss { $type= $float[7],
+
+$default= 0.4,$units= "mM",
+
+$s_desc= "total subspace Ca buffer concentration" }
+
+
+$member Kbufss { $type= $float[7],
+
+$default= 0.00025,$units= "mM",
+
+$s_desc= "half-saturation for subspace Ca buffer" }
+
+
+
+
+
+
+
+$member Fmaxup { $type= $float[7],
+
+$default= 0.006375,$units= "mM/ms",
+
+$s_desc= "maximal rate of Ca uptake in SR (I_up)" }
+
+
+$member Kup { $type= $float[7],
+
+$default= 0.00025,$units= "mM",
+
+$s_desc= "half-saturation of I_up (Ca uptake in SR)" }
+
+
+
+
+
+
+
+$member Fmax_rel { $type= $float[7],
+
+$default= 0.102,$units= "1/ms",
+
+$s_desc= "max Ca release rate" }
+
+
+$member Fmax_leak { $type= $float[7],
+
+$default= 0.00036,$units= "1/ms",
+
+$s_desc= "max Ca leak rate" }
+
+
+$member Fmax_xfer { $type= $float[7],
+
+$default= 0.0038,$units= "1/ms",
+
+$s_desc= "max Ca transfer rate" }
+
+
+
+
+
+
+
+$member k_1f { $type= $float[7],
+
+$default= 0.15,$units= "mM-2*ms-1",
+
+$s_desc= "R->O and RI->I I_rel trans rate" }
+
+
+$member k_2f { $type= $float[7],
+
+$default= 0.045,$units= "mM-1*ms-1",
+
+$s_desc= "O->I and R->RI I_rel trans rate" }
+
+
+$member k_3 { $type= $float[7],
+
+$default= 0.060,$units= "ms-1",
+
+$s_desc= "O->R and I->RI I_rel trans rate" }
+
+
+$member k_4 { $type= $float[7],
+
+$default= 0.005,$units= "ms-1",
+
+$s_desc= "I->O and RI->I I_rel trans rate" }
+
+
+$member KkCaSR { $type= $float[7],
+
+$default= 1.5,$units= "mM",
+
+$s_desc= "CaSR half-saturation constant of k_CaSR, also called EC" }
+
+
+$member max_sr { $type= $float[7],
+
+$default= 2.5,$units= "?",
+
+$s_desc= "Max value of the k_CaSR variable" }
+
+
+$member min_sr { $type= $float[7],
+
+$default= 1,$units= "?",
+
+$s_desc= "Min value of the k_CaSR variable" }
+
+
+
+
+
+
+
+
+
+
+$member Gto { $type= $float[7],
+
+$default= {0.294,0.294,0.073,0.504,0.882,
+
+0.073,0.073},
+
+$units= "nS/pF",
+
+$min= 0.0,
+
+$s_desc= "conductance for Ito" }
+
+
+$member GKs { $type= $float[7],
+
+$default= {0.392,0.098,0.392,0.176,0.784,
+
+0.392,0.392},
+
+$units= "nS/pF",
+
+$min= 0.0,
+
+$s_desc= "conductance for IKs" }
+
+
+$member GKs_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual GKs is to come from" }
+
+
+
+
+
+
+
+$member FtXs { $type= $float[7],
+
+$default= 1.0,$units= "(none)",
+
+$s_desc= "multiplier for tau_Xs" }
+
+
+$member VshiftXs { $type= $float[7],
+
+$default= 0.0,$units= "mV",
+
+$s_desc= "shift in voltage-dependence for tau_Xs" }
+
+
+
+
+
+
+
+$member GKr { $type= $float[7],
+
+$default= 0.153,$units= "nS/pF",
+
+$min= 0.0,
+
+$s_desc= "conductance for IKr" }
+
+
+$member GKr_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual GKr is to come from" }
+
+
+$member xr2_off { $type= $float[7],
+
+$default= 0.0,$units= "mV",
+
+$s_desc= "shift in voltage dependence of xr2 (inactivation) gate for IKr" }
+
+
+
+
+
+
+
+$member pKNa { $type= $float[7],
+
+$default= 0.03,$units= "(none)",
+
+$s_desc= "relative I_Ks permeability to Na+" }
+
+
+$member GK1 { $type= $float[7],
+
+$default= 5.405,$units= "nS/pF",$min= 0.0,
+
+$s_desc= "conductance for Ik1" }
+
+
+
+
+
+
+
+$member GNa { $type= $float[7],
+
+$default= 14.838,$units= "nS/pF",$min= 0.0,
+
+$s_desc= "conductance for INa" }
+
+
+$member GNa_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual GNa is to come from" }
+
+
+$member Vhalf_m { $type= $float[7],
+
+$default= -56.86,$units= "mV",
+
+$s_desc= "half-activation voltage for INa" }
+
+
+$member Vhalf_h { $type= $float[7],
+
+$default= -71.55,$units= "mV",
+
+$s_desc= "half-inactivation voltage for INa" }
+
+
+$member GbNa { $type= $float[7],
+
+$default= 0.00029,$units= "nS/pF",$min= 0.0,
+
+$s_desc= "conductance for IbNa" }
+
+
+$member Ftj { $type= $float[7],
+
+$default= 1.0,$units= "(none)",
+
+$s_desc= "multiplier for tau_j" }
+
+
+
+
+
+
+
+$member KmK { $type= $float[7],
+
+$default= 1.0,$units= "mM",
+
+$s_desc= "[K]o half-maximum constant for INaK" }
+
+
+$member KmNa { $type= $float[7],
+
+$default= 40.0,$units= "mM",
+
+$s_desc= "[Na]i half-maximum constant for INaK" }
+
+
+
+
+
+
+
+$member knak { $type= $float[7],
+
+$default= 2.724,$units= "pA/pF",
+
+$s_desc= "maximal INaK" }
+
+
+
+
+
+
+
+$member GCaL { $type= $float[7],
+
+$default= 0.0000398,$units= "cm^3/uFs",$min= 0.0,
+
+$s_desc= "conductance parameter for ICaL" }
+
+
+$member GCaL_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual GCaL is to come from" }
+
+
+$member FtF { $type= $float[7],
+
+$default= 1.0,$units= "(none)",
+
+$s_desc= "multiplier for tau_F" }
+
+
+$member GbCa { $type= $float[7],
+
+$default= 0.000592,$units= "nS/pF",$min= 0.0,
+
+$s_desc= "conductance for IbCa" }
+
+
+$member d_CaL_off { $type= $float[7],
+
+$default= 0.0,$units= "mV",
+
+$s_desc= "shift in voltage-dependence of of d (activation) gate for ICaL" }
+
+
+
+
+
+
+
+
+$member KmNai { $type= $float[7],
+
+$default= 87.5,$units= "mM",
+
+$s_desc= "[Na]o half-saturation for INaCa" }
+
+
+$member KmCa { $type= $float[7],
+
+$default= 1.38,$units= "mM",
+
+$s_desc= "[Ca]o half-saturation for INaCa" }
+
+
+
+
+
+
+
+$member knaca { $type= $float[7],
+
+$default= 1000,$units= "pA/pF",
+
+$s_desc= "maximal INaCa" }
+
+
+$member ksat { $type= $float[7],
+
+$default= 0.1,$units= "(none)",
+
+$s_desc= "saturation factor for INaCa" }
+
+
+$member n { $type= $float[7],
+
+$default= 0.35,$units= "(none)",
+
+$s_desc= "voltage-dependence of INaCa" }
+
+
+
+
+
+
+
+
+$member GpCa { $type= $float[7],
+
+$default= 0.1238,$units= "nS/pF",$min= 0.0,
+
+$s_desc= "conductance for IpCa (sarcolemmal Ca pump)" }
+
+
+$member KpCa { $type= $float[7],
+
+$default= 0.0005,$units= "mM",
+
+$s_desc= "[Ca]i half-saturation for IpCa (sarcolemmal Ca pump)" }
+
+
+
+
+
+
+
+$member GpK { $type= $float[7],
+
+$default= 0.0146,$units= "nS/pF",$min= 0.0,
+
+$s_desc= "conductance for IpK" }
+
+
+
+
+
+
+
+
+
+
+
+$member V_init { $type= $float[7],
+
+$default= -86.0,$units= "mV" }
+
+
+$member Cai_init { $type= $float[7],
+
+$default= {0.0000904,0.0001020,0.0000884,0.0001020,0.0000904,
+
+0.0000884,0.0000884},
+
+$units= "mM" }
+
+
+$member CaSR_init { $type= $float[7],
+
+$default= {2.95,3.58,2.85,3.58,2.95,
+
+2.85,2.85},
+
+$units= "mM" }
+
+
+$member CaSS_init { $type= $float[7],
+
+$default= {0.000213,0.000236,0.000211,0.000236,0.000213,
+
+0.000211,0.000211},
+
+$units= "mM" }
+
+
+$member Nai_init { $type= $float[7],
+
+$default= 8.3,$units= "mM" }
+
+
+$member Ki_init { $type= $float[7],
+
+$default= 137.25,$units= "mM" }
+
+
+
+
+
+
+
+
+$member freeze { $type= $boolean,$default= FALSE,
+
+$s_desc= "freeze status (except m and Ki) until cell is activated" }
+
+
+
+
+
+
+
+
+
+
+
+
+$member temperature { $type= $float[7],
+
+$default= 37,$units= "Celsius (centigrade)",
+
+$s_desc= "modeled temperature" }
+
+
+$member base_temperature { $type= $float[7],
+
+$default= 37,$units= "Celsius (centigrade)",
+
+$s_desc= "temperature for which the model is supposed to be fitted" }
+
+
+
+
+
+
+
+
+
+$member eint { $type= $float,$default= 0.1,$units= "ms",
+
+$s_desc= "interval for update of reversal potentials" }
+
+
+
+
+
+
+
+
+$member use_Isd { $type= $boolean,
+
+$default= TRUE,
+
+$s_desc= "let [K]i account for stimulation and diffusion current" }
+
+
+
+
+
+
+
+$member basetype { $type= $int[7],
+
+$default= {0,1,2,3,4,2,2},
+
+$min= 0,
+
+$max= 4,
+
+$s_desc= "determines basic celltype characteristics" }
+
+
+
+
+
+
+
+$member variant_severi_2009 { $type= $boolean,
+
+$default= FALSE,
+
+$s_desc= "enables the Severi 2009 model variant" }
+
+
+
+
+
+
+
+}
+
+
+
+

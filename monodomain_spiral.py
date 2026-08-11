@@ -5,7 +5,7 @@ import pyvista as pv
 import numpy as np
 from tqdm import trange
 import meshio
-from ioniclib.ioniclib import IonicModel
+from ioniclib import IonicModel
 import time
 
 def Bmatrix(nodeCoords,fl,ft,sigmal,sigmat):
@@ -71,7 +71,7 @@ def assembleParabolic(pts,elm,fl,ft,sigmal,sigmat):
     return Mp, Kp
 
 # Read the mesh
-square = meshio.read('square.o.mesh')
+square = meshio.read('meshes/square.o.mesh')
 pts = square.points
 elm = square.cells_dict['triangle']
 
@@ -128,7 +128,7 @@ Iion  = A.createVecRight()
 dtime = np.zeros((vm.size,),dtype=np.single)
 y = np.zeros((vm.size,25),dtype=np.double)
 
-pre = np.load('prepacing.npz')
+pre = np.load('rest/prepacing.npz')
 vm_init = pre['vm']
 vm.array[:] = np.tile(vm_init[0],vm.size)
 y_init = pre['y']
@@ -136,7 +136,7 @@ y = np.tile(y_init[0,:],(vm.size,1))
 
 # loop
 start = time.time()
-with meshio.xdmf.TimeSeriesWriter("spiral.xdmf") as writer:
+with meshio.xdmf.TimeSeriesWriter("output/monodomain_spiral.xdmf") as writer:
     writer.write_points_cells(pts, [("triangle",elm)])
     for i in trange(ndt):
         # current time

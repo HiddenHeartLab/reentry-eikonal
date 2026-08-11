@@ -1,0 +1,639 @@
+
+
+
+
+
+
+
+ 
+
+   
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$structure TNNP_param{
+
+
+
+
+$member Ko { $type= $float[7],
+
+$default= 5.4,$units= "mM",
+
+$s_desc= "extracellular K concentration" }
+
+
+$member Ko_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "source number for a node-specific Ko parameter",
+
+$l_desc = {
+This parameter sets the source number from which a node-specific
+Ko parameter is to be loaded. The application associates an
+input file with this source number.
+} }
+
+
+$member Cao { $type= $float[7],
+
+$default= 2.0,$units= "mM",
+
+$s_desc= "extracellular Ca concentration" }
+
+
+$member Nao { $type= $float[7],
+
+$default= 140.0,$units= "mM",
+
+$s_desc= "extracellular Na concentration" }
+
+
+
+
+
+
+
+
+
+
+
+$member Vc { $type= $float[7],
+
+$default= 0.016404,$units= "nL",
+
+$s_desc= "intracellular volume" }
+
+
+$member Vsr { $type= $float[7],
+
+$default= 0.001094,$units= "nL",
+
+$s_desc= "SR volume" }
+
+
+
+
+
+
+
+$member capacitance { $type= $float[7],
+
+$default= 0.185,$units= "nF",
+
+$s_desc= "cellular capacitance" }
+
+
+
+
+
+
+
+
+
+
+$member Bufc { $type= $float[7],
+
+$default= 0.15,$units= "mM",
+
+$s_desc= "total cytoplasmic Ca buffer concentration" }
+
+
+$member Kbufc { $type= $float[7],
+
+$default= 0.001,$units= "mM",
+
+$s_desc= "Ca half-saturation for cytoplasmic buffer" }
+
+
+$member Bufsr { $type= $float[7],
+
+$default= 10,$units= "mM",
+
+$s_desc= "total SR buffer concentration" }
+
+
+$member Kbufsr { $type= $float[7],
+
+$default= 0.3,$units= "mM",
+
+$s_desc= "Ca half-saturation for SR" }
+
+
+$member taufca { $type= $float[7],
+
+$default= 2.0,$units= "ms",
+
+$s_desc= "time constant of f_Ca (L-type Ca current) at 37C" }
+
+
+$member taug { $type= $float[7],
+
+$default= 2.0,$units= "ms",
+
+$s_desc= "time constant for I_rel (Ca-induced Ca release from SR) at 37C" }
+
+
+$member Fmaxup { $type= $float[7],
+
+$default= 0.000425,$units= "mM/ms",
+
+$s_desc= "maximal rate of Ca uptake in SR (I_up)" }
+
+
+$member Kup { $type= $float[7],
+
+$default= 0.00025,$units= "mM",
+
+$s_desc= "half-saturation of I_up (Ca uptake in SR)" }
+
+
+
+
+
+
+
+
+
+
+
+$member GKs { $type= $float[7],
+
+$default= {0.245,0.062,0.245,0.112,0.490,
+
+0.245,0.245},
+
+$units= "nS/pF",
+
+$s_desc= "conductance for IKs" }
+
+
+$member GKs_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "source number for a node-specific GKs parameter",
+
+$l_desc = {
+This parameter sets the source number from which a node-specific
+GKs parameter is to be loaded. The application associates an
+input file with this source number.
+} }
+
+
+$member FtXs { $type= $float[7],
+
+$default= 1.0,$units= "(none)",
+
+$s_desc= "multiplier for tau_Xs" }
+
+
+$member VshiftXs { $type= $float[7],
+
+$default= 0.0,$units= "mV",
+
+$s_desc= "shift in voltage-dependence for tau_Xs" }
+
+
+$member Gto { $type= $float[7],
+
+$default= {0.294,0.294,0.073,0.504,0.882,
+
+0.073,0.073},
+
+$units= "nS/pF",
+
+$s_desc= "conductance for Ito" }
+
+
+$member Gto_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "source number for a node-specific Gto parameter",
+
+$l_desc = {
+This parameter sets the source number from which a node-specific
+Gto parameter is to be loaded. The application associates an
+input file with this source number.
+} }
+
+
+
+
+
+
+
+$member GKr { $type= $float[7],
+
+$default= 0.096,$units= "nS/pF",
+
+$s_desc= "conductance for IKr" }
+
+
+$member GKr_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "source number for a node-specific GKr parameter",
+
+$l_desc = {
+This parameter sets the source number from which a node-specific
+GKr parameter is to be loaded. The application associates an
+input file with this source number.
+} }
+
+
+
+
+
+
+
+$member GbK { $type= $float[7],
+
+$default= 0.0,$units= "nS/pF",
+
+$s_desc= "conductance for IbK",
+
+$l_desc = {
+Conductance for a background potassium current.
+This is not part of the original TNNP model.
+} }
+
+
+
+
+
+
+
+$member pKNa { $type= $float[7],
+
+$default= 0.03,$units= "(none)",
+
+$s_desc= "relative I_Ks permeability to Na+" }
+
+
+$member GK1 { $type= $float[7],
+
+$default= 5.405,$units= "nS/pF",
+
+$s_desc= "conductance for Ik1" }
+
+
+
+
+
+
+
+$member GNa { $type= $float[7],
+
+$default= 14.838,$units= "nS/pF",
+
+$s_desc= "conductance for INa" }
+
+
+$member GNa_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "source number for a node-specific GNa parameter",
+
+$l_desc = {
+This parameter sets the source number from which a node-specific
+GNa parameter is to be loaded. The application associates an
+input file with this source number.
+} }
+
+
+$member Vhalf_m { $type= $float[7],
+
+$default= -56.86,$units= "mV",
+
+$s_desc= "half-activation voltage for INa" }
+
+
+$member Vhalf_h { $type= $float[7],
+
+$default= -71.55,$units= "mV",
+
+$s_desc= "half-inactivation voltage for INa" }
+
+
+$member GbNa { $type= $float[7],
+
+$default= 0.00029,$units= "nS/pF",
+
+$s_desc= "conductance for IbNa" }
+
+
+
+
+
+
+
+$member KmK { $type= $float[7],
+
+$default= 1.0,$units= "mM",
+
+$s_desc= "[K]o half-saturation for INaK" }
+
+
+$member KmNa { $type= $float[7],
+
+$default= 40.0,$units= "mM",
+
+$s_desc= "[Na]i half-saturation for INaK" }
+
+
+$member knak { $type= $float[7],
+
+$default= 1.362,$units= "pA/pF",
+
+$s_desc= "maximal INaK" }
+
+
+
+
+
+
+
+$member GCaL { $type= $float[7],
+
+$default= 0.000175,$units= "cm^3/uFs",
+
+$s_desc= "conductance parameter for ICaL" }
+
+
+$member GbCa { $type= $float[7],
+
+$default= 0.000592,$units= "nS/pF",
+
+$s_desc= "conductance for IbCa" }
+
+
+
+
+
+
+
+
+$member knaca { $type= $float[7],
+
+$default= 1000,$units= "pA/pF",
+
+$s_desc= "maximal INaCa" }
+
+
+$member KmNai { $type= $float[7],
+
+$default= 87.5,$units= "mM",
+
+$s_desc= "[Na]i half-saturation for INaCa" }
+
+
+$member KmCa { $type= $float[7],
+
+$default= 1.38,$units= "mM",
+
+$s_desc= "[Ca]i half-saturation for INaCa" }
+
+
+$member ksat { $type= $float[7],
+
+$default= 0.1,$units= "(none)",
+
+$s_desc= "saturation factor for INaCa" }
+
+
+$member n { $type= $float[7],
+
+$default= 0.35,$units= "(none)",
+
+$s_desc= "voltage-dependence of INaCa" }
+
+
+
+
+
+
+
+
+$member GpCa { $type= $float[7],
+
+$default= 0.825,$units= "nS/pF",
+
+$s_desc= "conductance for IpCa" }
+
+
+$member KpCa { $type= $float[7],
+
+$default= 0.0005,$units= "mM",
+
+$s_desc= "[Ca]i half-saturation for IpCa" }
+
+
+
+
+
+
+
+$member GpK { $type= $float[7],
+
+$default= 0.0146,$units= "nS/pF",
+
+$s_desc= "conductance for IpK" }
+
+
+
+
+
+
+
+
+
+
+
+$member V_init { $type= $float[7],
+
+$default= -86.2,$units= "mV" }
+
+
+$member Cai_init { $type= $float[7],
+
+$default= 0.0002,$units= "mM" }
+
+
+$member CaSR_init { $type= $float[7],
+
+$default= 0.2,$units= "mM" }
+
+
+$member Nai_init { $type= $float[7],
+
+$default= 11.6,$units= "mM" }
+
+
+$member Ki_init { $type= $float[7],
+
+$default= 138.3,$units= "mM" }
+
+
+
+
+
+
+
+$member ss_init { $type= $float[7],
+
+$default= {1.0,1.0,0.416,1.0,1.0,
+
+0.416,0.416},
+
+$units= "(none)",
+
+$s_desc= "initial value for gating variable s" }
+
+
+
+
+
+
+
+
+$member freeze { $type= $boolean,$default= FALSE,
+
+$s_desc= "freeze status (except m) until cell is activated" }
+
+
+
+
+
+
+
+$member freeze_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "source number for a node-specific freeze-until parameter",
+
+$l_desc = {
+This parameter sets the source number from which a node-specific
+freeze-until parameter is to be loaded. The application associates an
+input file with this source number.
+} }
+
+
+
+
+
+
+
+
+
+
+
+$member temperature { $type= $float[7],
+
+$default= 37,$units= "Celsius",
+
+$s_desc= "temperature" }
+
+
+
+
+
+
+
+
+
+$member eint { $type= $float,$default= 0.1,$units= "ms",
+
+$s_desc= "interval for update of reversal potentials" }
+
+
+
+
+
+
+
+
+$member use_Isd { $type= $boolean,
+
+$default= TRUE,
+
+$s_desc= "let [K]i account for stimulation and diffusion current" }
+
+
+
+
+
+
+
+$member basetype { $type= $int[7],
+
+$default= {0,1,2,3,4,2,2},
+
+$min= 0,
+
+$max= 4,
+
+$s_desc= "determines basic celltype characteristics" }
+
+
+
+
+
+
+
+
+
+}
+
+
+
+

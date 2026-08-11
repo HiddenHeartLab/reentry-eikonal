@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "IonPropag"
+version = "0.5"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ioniclib*"]
+exclude = ["build_tools*"]
+
+[tool.setuptools.package-data]
+ioniclib = ["*.json"]

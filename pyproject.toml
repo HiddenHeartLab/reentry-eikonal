@@ -17,5 +17,6 @@ dependencies = [
     "pyvista>=0.48.4",
     "scikit-fmm>=2025.6.23",
     "scipy>=1.18.0",
+    "setuptools>=84.0.0",
     "tqdm>=4.70.0",
 ]

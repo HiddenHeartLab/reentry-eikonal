@@ -1,0 +1,135 @@
+
+
+
+
+
+
+ 
+
+   
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$structure MS_param{
+
+
+
+
+
+$member tau_in { $type= $double,
+
+$default= 0.3,
+
+$s_desc= "parameter tau_in" }
+
+
+$member tau_out { $type= $double,
+
+$default= 6.0,
+
+$s_desc= "parameter tau_out" }
+
+
+$member tau_open { $type= $double,
+
+$default= 120.0,
+
+$s_desc= "parameter tau_open" }
+
+
+$member tau_close { $type= $double,
+
+$default= 150.0,
+
+$s_desc= "parameter tau_close" }
+
+
+$member v_gate { $type= $double,
+
+$default= 0.13,
+
+$s_desc= "parameter v_gate" }
+
+
+$member V_init { $type= $double,
+
+$default= -70.0,
+
+$s_desc= "init Vm" }
+
+
+$member V_min { $type= $double,
+
+$default= -70.0,
+
+$s_desc= "init Vm minimum value, normally is equal to V_init" }
+
+
+$member V_max { $type= $double,
+
+$default= 30.0,
+
+$s_desc= "init Vm maximum value" }
+
+
+$member h_init { $type= $double,
+
+$default= 1.0,
+
+$s_desc= "init h value" }
+
+
+
+
+
+
+$member test_Itotal_finite { $type= $boolean,
+
+$default= TRUE,
+
+$s_desc= "Abort if Itotal is not a finite number." }
+
+
+
+
+
+
+}
+
+
+

@@ -1,0 +1,440 @@
+
+
+
+
+
+
+ 
+
+   
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$structure CM98_param{
+
+
+
+
+
+$member Ko_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual Ko is to come from" }
+
+
+$member freeze_param { $type= $int,
+
+$default= 0,
+
+$s_desc= "parameter file where individual freeze-until value is to come from" }
+
+
+$member T { $type= $float[6],
+
+$default= 310,
+
+$s_desc= "Temperature",$units= "K" }
+
+
+$member K_Q10 { $type= $float[6],
+
+$default= 3,
+
+$s_desc= "Temp scaling for IKur, Ito" }
+
+
+
+
+
+
+
+$member C_m { $type= $float[6],
+
+$default= 100,
+
+$min= 0.1,
+
+$s_desc= "Membrane capacitance",$units= "pF" }
+
+
+$member V_cell { $type= $float[6],
+
+$default= 20100,
+
+$min= 1.0,
+
+$s_desc= "Cell volume",$units= "microm3" }
+
+
+$member V_i { $type= $float[6],
+
+$default= 13668,
+
+$min= 1.0,
+
+$s_desc= "Intracellular vol",$units= "microm3" }
+
+
+$member V_up { $type= $float[6],
+
+$default= 1109.52,
+
+$min= 1.0,
+
+$s_desc= "SR uptake comp vol",$units= "microm3" }
+
+
+$member V_rel { $type= $float[6],
+
+$default= 96.48,
+
+$min= 0.1,
+
+$s_desc= "SR release comp vol",$units= "microm3" }
+
+
+
+
+
+
+
+$member K_o { $type= $float[6],
+
+$default= 5.4,
+
+$s_desc= "Extracellular K+ conc",$units= "mM" }
+
+
+$member Na_o { $type= $float[6],
+
+$default= 140,
+
+$s_desc= "Extracellular Na+ conc",$units= "mM" }
+
+
+$member Ca_o { $type= $float[6],
+
+$default= 1.8,
+
+$s_desc= "Extracellular Ca2+ conc",$units= "mM" }
+
+
+
+
+
+
+
+$member g_Na { $type= $float[6],
+
+$default= 7.8,
+
+$s_desc= "Max |INa| conductance",$units= "nS/pF" }
+
+
+$member g_K1 { $type= $float[6],
+
+$default= 0.09,
+
+$s_desc= "Max |Ik1| conductance",$units= "nS/pF" }
+
+
+$member g_to { $type= $float[6],
+
+$default= 0.1652,
+
+$s_desc= "Max |Ito| conductance",$units= "nS/pF" }
+
+
+$member f_Kur { $type= $float[6],
+
+$default= 1.0,
+
+$s_desc= "relative I_Kur expression level",$units= "(dimensionless)" }
+
+
+$member g_Kr { $type= $float[6],
+
+$default= 0.0294,
+
+$s_desc= "Max |IKr| conductance",$units= "nS/pF" }
+
+
+$member g_Ks { $type= $float[6],
+
+$default= 0.129,
+
+$s_desc= "Max |I_ks| conductance",$units= "nS/pF" }
+
+
+$member g_CaL { $type= $float[6],
+
+$default= 0.1238,
+
+$s_desc= "Max |ICaL| conductance",$units= "nS/pF" }
+
+
+$member g_bCa { $type= $float[6],
+
+$default= 0.00113,
+
+$s_desc= "Max |IbCa| conductance",$units= "nS/pF" }
+
+
+$member g_bNa { $type= $float[6],
+
+$default= 0.000674,
+
+$s_desc= "Max |IbNa| conductance",$units= "nS/pF" }
+
+
+$member INaK_max { $type= $float[6],
+
+$default= 0.60,
+
+$s_desc= "Maximal |INaK|",$units= "pA/pF" }
+
+
+$member INaCa_max { $type= $float[6],
+
+$default= 1600,
+
+$s_desc= "Maximal |INaCa|",$units= "pA/pF" }
+
+
+$member I_pCa_max { $type= $float[6],
+
+$default= 0.275,
+
+$s_desc= "Maximal |I_pCa|",$units= "pA/pF" }
+
+
+$member Iup_max { $type= $float[6],
+
+$default= 0.005,
+
+$s_desc= "Maximal |Iup|(mM/ms)" }
+
+
+$member k_rel { $type= $float[6],
+
+$default= 30,
+
+$s_desc= "Max release rate |Irel|",$units= "ms-1" }
+
+
+
+
+
+
+
+$member K_mNa_i { $type= $float[6],
+
+$default= 10,
+
+$s_desc= "Na+ half-saturation constant for |INaK|",$units= "mM" }
+
+
+$member K_mK_o { $type= $float[6],
+
+$default= 1.5,
+
+$s_desc= "K+ half-saturation constant for |INaK|",$units= "mM" }
+
+
+$member K_mNa { $type= $float[6],
+
+$default= 87.5,
+
+$s_desc= "Na+ half-saturation constant for |INaCa|",$units= "mM" }
+
+
+$member K_mCa { $type= $float[6],
+
+$default= 1.38,
+
+$s_desc= "Ca2+ half-saturation constant for |INaCa|",$units= "mM" }
+
+
+$member k_sat { $type= $float[6],
+
+$default= 0.1,
+
+$s_desc= "Saturation factor for |INaCa|" }
+
+
+$member K_up { $type= $float[6],
+
+$default= 0.00092,
+
+$s_desc= "Ca2+ half-saturation constant for |Iup|",$units= "mM" }
+
+
+$member Ca_up_max { $type= $float[6],
+
+$default= 15,
+
+$s_desc= "Max Ca2+ concentration uptake comp",$units= "mM" }
+
+
+$member Cmdn_max { $type= $float[6],
+
+$default= 0.05,
+
+$s_desc= "Total calmodulin concentration",$units= "mM" }
+
+
+$member Trpn_max { $type= $float[6],
+
+$default= 0.07,
+
+$s_desc= "Total troponin concentration",$units= "mM" }
+
+
+$member Csqn_max { $type= $float[6],
+
+$default= 10,
+
+$s_desc= "Total calsequestrin concentration",$units= "mM" }
+
+
+$member K_mCmdn { $type= $float[6],
+
+$default= 0.00238,
+
+$s_desc= "Ca2+ int half-saturation for calmodulin",$units= "mM" }
+
+
+$member K_mTrpn { $type= $float[6],
+
+$default= 0.0005,
+
+$s_desc= "Ca2+ int half-saturation for troponin",$units= "mM" }
+
+
+$member K_mCsqn { $type= $float[6],
+
+$default= 0.8,
+
+$s_desc= "Ca2+ rel half-saturation for |Iup|",$units= "mM" }
+
+
+
+
+
+
+
+$member Gamma { $type= $float[6],
+
+$default= 0.35,
+
+$s_desc= "Voltage dependent par |INaCa|" }
+
+
+
+
+
+
+
+$member test_Itotal_finite { $type= $boolean,
+
+$default= TRUE,
+
+$s_desc= "Abort if Itotal is not a finite number." }
+
+
+
+
+
+
+
+$member smooth_singularities { $type= $boolean,
+
+$default= FALSE,
+
+$s_desc= "Use linear interpolation instead of limit values to avoid 0/0 divisions" }
+
+
+$member smooth_steps { $type= $boolean,
+
+$default= FALSE,
+
+$s_desc= "Use linear interpolation to avoid steps in rate constants and such" }
+
+
+
+
+
+
+
+$member mh_threshold { $type= $float[6],
+
+$default= 0.05,
+
+$s_desc= "depolarization detection threshold for the product m*h" }
+
+
+
+
+
+
+
+$member freeze { $type= $boolean,$default= FALSE,
+
+$s_desc= "freeze status (except m and K_i) until cell is activated" }
+
+
+
+
+
+
+$member use_Isd { $type= $boolean,
+
+$default= FALSE,
+
+$s_desc= "let [K]i account for stimulation and diffusion current" }
+
+
+
+
+
+
+}
+
+
+
