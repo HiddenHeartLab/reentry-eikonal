@@ -1,9 +1,10 @@
-import numpy as np
-import meshio
-from collections import defaultdict
-from skfmm import heap
 import csv
 import time
+from collections import defaultdict
+
+import meshio
+import numpy as np
+from skfmm import heap
 
 # read the mesh
 m = meshio.read('meshes/atria_aniso.vtk')
@@ -54,7 +55,7 @@ def hopf_lax_update(p,phi,cv):
     DD = D[p,range(len(p2t[p])),:,:]/F[:,np.newaxis,np.newaxis]
     MM = np.einsum('ijp,ipq,ikq->ijk',PP,DD,PP)
     MMinv = np.linalg.inv(MM)
-    Uz_faces,lmbda = solve_quadratic_v(MMinv, UU)
+    Uz_faces,_ = solve_quadratic_v(MMinv, UU)
 
     # solve edges
     Uz_edges = (np.sqrt(np.einsum('eii->ei',MM)) + UU).min()
